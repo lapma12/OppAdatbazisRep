@@ -1,35 +1,23 @@
 ﻿using System.Data.SqlClient;
 using System;
 using MySql.Data.MySqlClient;
+using OppAdatbazis;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        
         Console.Write("Adja meg az adatbázis nevét: ");
-        string databaseName = Console.ReadLine();
-
+        string db = Console.ReadLine();
         Console.Write("Adja meg a felhasználónevet: ");
-        string username = Console.ReadLine();
-
+        string fh = Console.ReadLine();
         Console.Write("Adja meg a jelszót: ");
-        string password = Console.ReadLine();
-        string connectionString = $"Server=localhost;Database={databaseName};User Id={username};Password={password};";
+        string pw = Console.ReadLine();
+        Connect belepes = new Connect(db,fh,pw);
 
-        try
-        {
-            
-            using (var connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                Console.WriteLine("Sikeres csatlakozás");
-            }
-        }
-        catch (Exception ex)
-        {
-            
-            Console.WriteLine($"Hiba a csatlakozás során: {ex.Message}");
-        }
+        Console.WriteLine(belepes);
+
 
     }
 }
