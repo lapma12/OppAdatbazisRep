@@ -25,18 +25,23 @@ internal class Program
         //Console.WriteLine(book);
 
         //Feladat3
-        Console.Write("Adj meg egy könyv címet: ");
-        string title = Console.ReadLine();
-        Console.Write("Adj meg hozzá a szerzőt: ");
-        string author = Console.ReadLine();
+        //Console.Write("Adj meg egy könyv címet: ");
+        //string title = Console.ReadLine();
+        //Console.Write("Adj meg hozzá a szerzőt: ");
+        //string author = Console.ReadLine();
 
-        var newBook = new
-        {
-            Title = title,
-            Author = author
-        };
+        //var newBook = new
+        //{
+        //    Title = title,
+        //    Author = author
+        //};
 
-        sqlStatements.addNewRecord(newBook);
+        //sqlStatements.addNewRecord(newBook);
+
+        //Feladat4
+        Console.Write("Kérem a törlendő rekord id-t: ");
+        string id = Console.ReadLine();
+        sqlStatements.deleteRecord(int.Parse(id));
 
 
 

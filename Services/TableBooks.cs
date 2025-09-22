@@ -31,6 +31,25 @@ namespace OppAdatbazis.Services
             return book;
         }
 
+        public object deleteRecord(int id)
+        {
+            Connect conn = new Connect("library");
+
+            conn.Connection.Open();
+            string sql = "DELETE FROM books WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            var book = new
+            {
+                Id = id
+            };
+            cmd.Parameters.AddWithValue("@id", book.Id);
+            cmd.ExecuteNonQuery();
+            conn.Connection.Close();
+
+            return book;
+        }
+
         public List<object> GetAllRecords()
         {
             List<object> result = new List<object>();
@@ -59,9 +78,6 @@ namespace OppAdatbazis.Services
             }
 
             return result;
-
-
-
         }
 
         public object GetBookById(int id)
@@ -83,9 +99,6 @@ namespace OppAdatbazis.Services
             };
             conn.Connection.Close();
             return book;
-            
         }
-
-
     }
 }

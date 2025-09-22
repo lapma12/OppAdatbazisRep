@@ -12,6 +12,10 @@ namespace OppAdatbazis.Services
 
         object GetBookById(int id);
 
-        object addNewRecord(object bewBook);
+        object addNewRecord(object newBook);
+
+        object deleteRecord(int id);
+
+        object updateRecord(int id,object newBook);
     }
 }
