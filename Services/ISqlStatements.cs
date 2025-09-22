@@ -8,8 +8,10 @@ namespace OppAdatbazis.Services
 {
     internal interface ISqlStatements
     {
-        List<object> GetAllBooks();
+        List<object> GetAllRecords();
 
         object GetBookById(int id);
+
+        object addNewRecord(object bewBook);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,28 @@ namespace OppAdatbazis.Services
 {
     internal class TableBooks : ISqlStatements
     {
-        public List<object> GetAllBooks()
+        public object addNewRecord(object newBook)
+        {
+            Connect conn = new Connect("library");
+            conn.Connection.Open();
+            string sql = "INSERT INTO books (title, author, releaseDate) VALUES (@title, @author, @releaseDate)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            var book = newBook.GetType().GetProperties();
+
+            cmd.Parameters.AddWithValue("@title", book[0].GetValue(newBook));
+            cmd.Parameters.AddWithValue("@author", book[1].GetValue(newBook));
+            cmd.Parameters.AddWithValue("@releaseDate", DateTime.Now);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+
+            return book;
+        }
+
+        public List<object> GetAllRecords()
         {
             List<object> result = new List<object>();
 
@@ -63,5 +85,7 @@ namespace OppAdatbazis.Services
             return book;
             
         }
+
+
     }
 }
