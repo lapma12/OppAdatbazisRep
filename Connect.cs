@@ -18,12 +18,12 @@ namespace OppAdatbazis
 
         private string _connectionString;
 
-        public Connect(string database,string user,string password)
+        public Connect(string database)
         {
             _host = "localhost";
             _database = database;
-            _user = user;
-            _password = password;
+            _user = "root";
+            _password = "";
             _connectionString = $"Server={_host};Database={_database};User Id={_user};Password={_password};SslMode=None";
 
             Connection = new MySqlConnection(_connectionString);
