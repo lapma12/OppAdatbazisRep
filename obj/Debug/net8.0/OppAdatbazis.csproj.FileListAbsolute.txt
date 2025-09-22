@@ -44,3 +44,4 @@ C:\Users\lapostyanm\source\repos\OppAdatbazis\obj\Debug\net8.0\refint\OppAdatbaz
 C:\Users\lapostyanm\source\repos\OppAdatbazis\obj\Debug\net8.0\OppAdatbazis.pdb
 C:\Users\lapostyanm\source\repos\OppAdatbazis\obj\Debug\net8.0\OppAdatbazis.genruntimeconfig.cache
 C:\Users\lapostyanm\source\repos\OppAdatbazis\obj\Debug\net8.0\ref\OppAdatbazis.dll
+C:\Users\lapostyanm\source\repos\OppAdatbazis\obj\Debug\net8.0\OppAdatbazis.sourcelink.json

@@ -2,21 +2,29 @@
 using System;
 using MySql.Data.MySqlClient;
 using OppAdatbazis;
+using OppAdatbazis.Services;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
         
-        Console.Write("Adja meg az adatbázis nevét: ");
-        string db = Console.ReadLine();
-        Console.Write("Adja meg a felhasználónevet: ");
-        string fh = Console.ReadLine();
-        Console.Write("Adja meg a jelszót: ");
-        string pw = Console.ReadLine();
-        Connect belepes = new Connect(db,fh,pw);
+       ISqlStatements sqlStatements = new TableBooks();
 
-        Console.WriteLine(belepes);
+        //foreach (var item in sqlStatements.GetAllBooks())
+        //{
+        //    var book = item.GetType().GetProperties();
+        //    Console.WriteLine($"{book[0].Name}={book[0].GetValue(item)}, {book[1].Name}={book[1].GetValue(item)}");
+        //}
+
+        Console.Write("Kérem a rekord id-t: ");
+        string id = Console.ReadLine();
+
+        var book = sqlStatements.GetBookById(int.Parse(id));
+        Console.WriteLine(book);
+
+
+
 
 
     }
